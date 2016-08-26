@@ -1,0 +1,10 @@
+PTWS_ID = "PTWS"; // The name of the id that will be in database, if changed the system will create a new entry and start over.
+PTWS_StartingDate = [2016,8,22,12,0]; // The date that the server will start on NOTE: Must be in this format [year, month, day, hour, minute] see https://community.bistudio.com/wiki/date
+
+PTWS_timeAcc = true; // Enables/Disables the time multipliers for day and night. 
+PTWS_timeAccNightStart = 18; // The 24hr time that the night multiplier starts. 		Default: 18 = 6:00PM
+PTWS_timeAccDayStart = 6; // The 24hr time that the day multiplier starts. 				Default:6 = 6:00AM 
+PTWS_timeAccMultiplierNight = 6; //The multiplier for night time acceleration. 			Default: 6x = 2 hour nights
+PTWS_timeAccMultiplierDay = 4; //The multiplier for day time acceleration. 				Default: 4x = 3 hour days
+
+PTWS_CompiledOkay = true;
