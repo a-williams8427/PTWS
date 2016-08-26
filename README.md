@@ -12,8 +12,8 @@ PTWS is a script made for Exile that allows time and weather to persist through 
 * Time accleration
 
 #### To-do List
-* ~Add Persistent weather~
-* ~Configure seasons based on months~
+* ~~Add Persistent weather~~
+* ~~Configure seasons based on months~~
 * Make the seasons affect more than the temperature
 * ????
 
