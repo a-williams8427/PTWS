@@ -1,12 +1,5 @@
-private["_dateID"];
+private ["_insertDatabaseID"];
 if (!isServer) exitWith {};
-
-missionNamespace setVariable ["PTWS",PTWS_ID];
-PTWS_DB_ID = missionNamespace getVariable "ExileDatabaseID";
-
-if (isNil "PTWS_DB_ID") then
-{
-_dateID = format["createDate:%1", missionNamespace getVariable "PTWS"] call ExileServer_system_database_query_insertSingle;
-missionNamespace setVariable ["ExileDatabaseID", _dateID];
-_dateID;
-};
+//None of my checks work for the database entry work :/
+_insertDatabaseID = format["createDate:%1", PTWS_ID] call ExileServer_system_database_query_insertSingle;
+_insertDatabaseID;

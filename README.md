@@ -1,15 +1,20 @@
 # PTWS
 ####Persistent Time and Weather System
 
-PTWS is a script made for Exile that allows time (and hopefully weather soon) to persist through server restarts. This is far from done but I think in its current state it is still useful for RP, or for people who want to run their servers on smaller time multipliers and still have their players experience a full day/night cycle.
+PTWS is a script made for Exile that allows time and weather to persist through server restarts. It also has seasons defined by months that will change the temperature. 
 
 #### Features
 * Persistent time (year, month, day, hour, minute)
+* Persistent weather
+* Dynamic weather (thanks to code34's Real weather)
+* Seasons that change the temperature
+* Snow based on temperature and current overcast
 * Time accleration
 
 #### To-do List
-* Add Persistent weather
-* Configure seasons based on months
+* ~Add Persistent weather~
+* ~Configure seasons based on months~
+* Make the seasons affect more than the temperature
 * ????
 
 ## Installation
@@ -27,7 +32,9 @@ PTWS is a script made for Exile that allows time (and hopefully weather soon) to
 ##### Mission
 1) Copy `PTWS` from `Mission Files\mpmissions\Exile.Yourmap` into the root of your Exile.Yourmap folder.
 
-2) Open your `config.cpp` in your mission folder and edit your `CfgExileCustomCode` and add a new line inside like this:
+2) Open your `config.cpp` in your mission folder and edit your `CfgExileCustomCode` and add a two new lines inside like this:
 `ExileServer_system_weather_initialize = "PTWS\ExileServer_system_weather_initialize.sqf"`
+`ExileClient_object_player_stats_updateTemperature = "PTWS\ExileClient_object_player_stats_updateTemperature.sqf"`
+`ExileClient_system_snow_thread_update = "PTWS\ExileClient_system_snow_thread_update.sqf"`
 
 #### You are done!

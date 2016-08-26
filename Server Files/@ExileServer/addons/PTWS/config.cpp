@@ -4,7 +4,7 @@ class CfgPatches
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;
-		requiredAddons[] = {};
+		requiredAddons[] = {"exile_server"};
 		author[]= {"MajorXAcE"};
 	};
 };
@@ -18,13 +18,15 @@ class CfgFunctions {
 				file = "\PTWS\initServer.sqf";
 			};
 		};
-		/*
+		
 		class compiles
 		{
 			file = "\PTWS\scripts";
 			class saveDate 			{};
+			class saveWeather		{};
+			class controlWeather	{};
 			class timeAcc			{};
 		};
-		*/
+	
 	};
 };

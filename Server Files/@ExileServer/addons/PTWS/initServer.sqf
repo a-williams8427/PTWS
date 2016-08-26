@@ -8,7 +8,7 @@
     //Borrowed from second_coming's occupation mod.
     if(isNil "PTWS_CompiledOkay") exitWith { diag_log "PTWS - Failed to read config.sqf, check for typos."; };
 
-    diag_log "PTWS - Initialised";
+    diag_log "PTWS - Initialized";
 
     // Start PTWS
 	[]execVM "\PTWS\scripts\insertPTWS.sqf";
