@@ -33,8 +33,8 @@ PTWS is a script made for Exile that allows time and weather to persist through 
 1) Copy `PTWS` from `Mission Files\mpmissions\Exile.Yourmap` into the root of your Exile.Yourmap folder.
 
 2) Open your `config.cpp` in your mission folder and edit your `CfgExileCustomCode` and add a two new lines inside like this:
-`ExileServer_system_weather_initialize = "PTWS\ExileServer_system_weather_initialize.sqf"`
-`ExileClient_object_player_stats_updateTemperature = "PTWS\ExileClient_object_player_stats_updateTemperature.sqf"`
-`ExileClient_system_snow_thread_update = "PTWS\ExileClient_system_snow_thread_update.sqf"`
+`ExileServer_system_weather_initialize = "PTWS\ExileServer_system_weather_initialize.sqf";`
+`ExileClient_object_player_stats_updateTemperature = "PTWS\ExileClient_object_player_stats_updateTemperature.sqf";`
+`ExileClient_system_snow_thread_update = "PTWS\ExileClient_system_snow_thread_update.sqf";`
 
 #### You are done!
