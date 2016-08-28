@@ -37,9 +37,19 @@ if ((_month > _SummerEnd) && (_month <= _FallEnd)) then
 	_season = "Fall";
 };
 
-if (_month == 11 || _month == 12 || _month == 1) then
+if (_month == 11 || _month == 12 || _month == 1) then //The previous conditions won't work when the season includes December: 12 and January: 1 because x cannot be both >= 12 and  =< 1; 
 {
 	_season = "Winter";
+};
+
+_mapOverride = true; //Set true if you want the season to stay the same for specific maps, you can add more below. 
+
+if (_mapOverride) then
+{
+	switch (worldName) do {
+		case "tanoa": { _season = "Summer"; };
+		case "namalsk": { _season = "Fall"; };
+	};
 };
 
 //diag_log format["PTWS - Current Season:%1",_season];
