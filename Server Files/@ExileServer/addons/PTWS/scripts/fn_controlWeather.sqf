@@ -18,13 +18,14 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>. 
 	*/
 
-private ["_lastrain","_rain","_overcast","_fogValue","_fogDecay","_fogHeight"];
-_lastrain = 0;
+private ["_lastrain","_rain","_overcast","_fogValue","_fogDecay","_fogHeight","_wind"];
+_lastrain = rain;
 _rain = 0;
 _overcast = 0;
 _fogValue = 0;
 _fogDecay = 0;
 _fogHeight =0;
+_wind = [0,0,true];
 
 _overcast = random 1;
 if(_overcast > 0.5) then { 
@@ -39,22 +40,24 @@ if((date select 3 > 5) and (date select 3 <10)) then {
 	_fogHeight = random 20;
 } else { 
 	if((_lastrain > 0.6) and (_rain < 0.2)) then {
-_fogValue = random 0.4;
-_fogDecay = 0;
-_fogHeight = 0;
+		_fogValue = random 0.4;
+		_fogDecay = 0;
+		_fogHeight = 0;
 	} else {
-_fogValue = 0;
-_fogDecay = 0;
-_fogHeight = 0;
+		_fogValue = 0;
+		_fogDecay = 0;
+		_fogHeight = 0;
 	};
 };
 
-if(random 1 > 0.5) then { "wind case 1";
-	_wind = [random 7, random 7, false];
-} else { 
+if(random 1 > 0.95) then 
+{
+	_wind = [random 7, random 7, true];
+} 
+else 
+{
 	_wind = [random 3, random 3, false];
 };
-_lastrain = _rain;
 
 wcweather = [_rain, [_fogValue,_fogDecay,_fogHeight], _overcast, _wind, date];
 60 setRain (wcweather select 0);

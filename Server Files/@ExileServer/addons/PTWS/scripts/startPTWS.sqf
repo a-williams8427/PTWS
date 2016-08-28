@@ -63,17 +63,23 @@ diag_log "PTWS - SaveDate Initialized";
 diag_log "PTWS - SaveWeather Initialized";
 [60, PTWS_fnc_saveWeather, [], true] call ExileServer_system_thread_addTask;
 
-if(PTWS_weatherChangeMin > PTWS_weatherChangeMax) exitwith {hint format["PTWS - Max time: %1 must to be higher than Min time: %2", PTWS_weatherChangeMax, PTWS_weatherChangeMin];};
-_timeforecast = PTWS_weatherChangeMin;
-
-if !(PTWS_weatherChangeFast) then {
-	_timeforecast = PTWS_weatherChangeMin + (random (PTWS_weatherChangeMax - PTWS_weatherChangeMin));
-};
-
+[] spawn {
 diag_log "PTWS - ControlWeather Initialized";
-_timeforecastMinutes = [_timeforecast,"HH:MM:SS"] call BIS_fnc_secondsToString;
-diag_log format ["PTWS - Time until next forecast:%1",_timeforecastMinutes];
-[_timeforecast, PTWS_fnc_controlWeather, [], true] call ExileServer_system_thread_addTask;
+while {true} do {
+	call PTWS_fnc_controlWeather;
+	
+	if(PTWS_weatherChangeMin > PTWS_weatherChangeMax) exitwith {hint format["PTWS - Max time: %1 must to be higher than Min time: %2", PTWS_weatherChangeMax, PTWS_weatherChangeMin];};
+	_timeforecast = PTWS_weatherChangeMin;
+
+	if !(PTWS_weatherChangeFast) then {
+		_timeforecast = PTWS_weatherChangeMin + (random (PTWS_weatherChangeMax - PTWS_weatherChangeMin));
+	};
+
+	_timeforecastMinutes = [_timeforecast,"HH:MM:SS"] call BIS_fnc_secondsToString;
+	diag_log format ["PTWS - Time until next forecast:%1",_timeforecastMinutes];
+	uiSleep _timeforecast;
+	};
+};
 
 if (PTWS_timeAcc) then
 {
