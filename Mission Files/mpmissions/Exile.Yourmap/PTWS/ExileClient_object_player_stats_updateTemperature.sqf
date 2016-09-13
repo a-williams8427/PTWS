@@ -3,7 +3,7 @@
  *
  * Exile Mod
  * www.exilemod.com
- * © 2015 Exile Mod Team
+ * Â© 2015 Exile Mod Team
  *
  * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. 
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
@@ -46,7 +46,7 @@ _mapOverride = true; //Set true if you want the season to stay the same for spec
 
 if (_mapOverride) then
 {
-	switch (worldName) do {
+	switch (toLower worldName) do {
 		case "tanoa": { _season = "Summer"; };
 		case "namalsk": { _season = "Fall"; };
 	};
