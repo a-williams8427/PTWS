@@ -3,7 +3,7 @@ if (!isServer) exitWith {};
 
 _saveddate = format ["getDate:%1", PTWS_ID] call ExileServer_system_database_query_selectSingleField;
 _savedWeather = format ["getWeather:%1", PTWS_ID] call ExileServer_system_database_query_selectSingleField;
-
+diag_log format["PTWSDebug:db data - date:%1  weather:%2",_saveddate,_savedWeather];
 if (typeName _saveddate isEqualTo "ARRAY") then
 {
 	diag_log format["PTWS - Loading last saved date : %1", _saveddate];

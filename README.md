@@ -24,7 +24,8 @@ PTWS is a script made for Exile that allows time and weather to persist through 
 
 2) You should now have a ptws table.
 
-3) Copy the contents of `PTWS.ini` into your `@ExileServer\extDB\sql_custom_v2\exile.ini` file at the bottom.
+3) For 32bit: Copy the contents of `PTWS.ini` into your `@ExileServer\extDB\sql_custom_v2\exile.ini` file at the bottom.
+3) For 64bit: Copy the contents of `PTWS_x64.ini` into your `@extdb3\sql_custom\exile.ini` file at the bottom.
 
 ##### Server
 1) Take either the PTWS.pbo or the file and put it in your `@ExileServer\addons`. Use the file if you want to configure the settings and pack it after you're done.

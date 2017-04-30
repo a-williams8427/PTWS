@@ -11,7 +11,12 @@
     diag_log "PTWS - Initialized";
 
     // Start PTWS
-	[]execVM "\PTWS\scripts\insertPTWS.sqf";
+	//DonkeyPunch - DirtySanchez add database check for known ID if none then populate it with config setup information
+	_isKnownPTWSDateID = format ["isKnownPTWSID:%1", PTWS_ID] call ExileServer_system_database_query_selectSingleField;
+	if!(_isKnownPTWSDateID)then
+	{
+		_insertPTWSDateID = format["createDate:%1", PTWS_ID] call ExileServer_system_database_query_insertSingle;
+	};
 	sleep 1;
     []execVM "\PTWS\scripts\startPTWS.sqf";
 };
